@@ -2,7 +2,7 @@ pipeline{
   agent{
      kubernetes{
         label mylabel
-        defaultComtainer 'kubedemo'
+        defaultContainer 'kubedemo'
        yaml ---
           apiVersion: apps/v1
           kind: Deployment
