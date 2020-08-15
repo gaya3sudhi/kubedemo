@@ -21,20 +21,7 @@ pipeline{
              - 
               image: gaya3sudhi/dockerapp
               name: kubedemo
-           --- 
-           apiVersion: v1
-           kind: Service
-           metadata: 
-             name: kubedemo
-             namespace: default
-           spec: 
-             ports: 
-               - 
-                 port: 8009
-                 targetPort: 8080
-             selector: 
-               bb: web
-             type: LoadBalancer
+         
          }
        }
   }
