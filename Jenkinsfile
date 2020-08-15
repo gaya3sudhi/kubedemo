@@ -7,7 +7,6 @@ pipeline{
           kind: Deployment
           metadata: 
            name: kubedemo
-           namespace: default
           spec: 
            replicas: 2
            selector: 
