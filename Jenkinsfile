@@ -4,7 +4,7 @@ pipeline{
         stage('Deploy to GKE') {
             steps{
                 script{
-                    kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kube-config2") 
+                    kubernetesDeploy(configs: "deployment.yaml") 
                       }
                  }   
              }
