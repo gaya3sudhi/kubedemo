@@ -3,8 +3,7 @@ pipeline{
      kubernetes{
         label mylabel
         defaultComtainer 'kubedemo'
-       yaml{ 
-          ---
+       yaml ---
           apiVersion: apps/v1
           kind: Deployment
           metadata: 
@@ -40,7 +39,6 @@ pipeline{
              type: LoadBalancer
          }
        }
-  }
    stages{           
        stage('stage-1') {
            steps{
