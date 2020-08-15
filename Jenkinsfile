@@ -1,11 +1,13 @@
 pipeline{
   agent{
-    stage('stage-3') {
-    steps{
-             sh "echo In stage three"
-        }
+    stages{
+        stage('Deploy to GKE') {
+            steps{
+                script{
+                    kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kube-config2") 
+                      }
+                 }   
+             }
+          }
       }
-    }
-   }
-
-    
+}
