@@ -2,8 +2,7 @@ pipeline{
   agent{
      kubernetes{
           defaultContainer 'kubedemo'
-       yaml{ 
-          ---
+       yaml { 
           apiVersion: apps/v1
           kind: Deployment
           metadata: 
