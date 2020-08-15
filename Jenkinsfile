@@ -1,5 +1,5 @@
-pipeline{
-  agent{
+pipeline {
+  agent any 
     stages{
         stage('Deploy to GKE') {
             steps{
@@ -10,4 +10,3 @@ pipeline{
              }
           }
       }
-}
