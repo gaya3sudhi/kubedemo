@@ -18,7 +18,6 @@ pipeline{
              bb: web
            spec: 
             containers: 
-             - 
               image: gaya3sudhi/dockerapp
               name: kubedemo
          
