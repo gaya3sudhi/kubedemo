@@ -5,11 +5,11 @@ pipeline {
 		PROJECT_ID = 'wired-rex-283811'
  		CLUSTER_NAME = 'cluster-1'
  		LOCATION = 'us-east1-b'
- 		CREDENTIALS_ID = 'sprint-k8'
+ 		CREDENTIALS_ID = 'sprint6-kube'
                     }
 		
 	stages {           
-	     stage('Deploy to GKE') {
+	     stage('Deploy to GKE') {'
  			steps{
  				echo "Deployment started"
 				sh 'ls -ltr'
