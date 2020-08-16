@@ -8,50 +8,8 @@ pipeline {
  		CREDENTIALS_ID = 'sprint6-kube'
                     }
 		
-	 stages {	
-		   stage('Scm Checkout') {            
-			steps {
-	                  checkout scm
-			      }	
-	                  }
-	           
-		   stage('Build') { 
-	                steps {
-	                  script {
-                                 myapp = docker.build("gaya3sudhi/sprint6demo")
-                                 }
-	                     }
-	                 }
-		   stage('Test') { 
-			steps {
-		          script {
-                                  docker.withRegistry('https://registry.hub.docker.com', 'docker-cred') {
-                                  myapp.push("latest")
-                                  myapp.push("${env.BUILD_ID}")
-                                 }
-			      }
-		         }
-		   } 
-		   stage('Build Docker Image') { 
-			steps {
-	                   script {
-	                      dockerImage = docker.build registry + ":$BUILD_NUMBER"
-	                          }
-	                      }
-		         }
-			   
-              stage('Deploy Image') {
-                steps{
-                    script {
-                    docker.withRegistry( '', registryCredential )
-			      {
-                        dockerImage.push()
-                              }
-                          }
-                       }
-	           }
-            
-	           stage('Deploy to GKE') {
+	stages {           
+	     stage('Deploy to GKE') {
  			steps{
  				echo "Deployment started"
 				sh 'ls -ltr'
