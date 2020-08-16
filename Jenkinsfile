@@ -4,7 +4,7 @@ pipeline {
             registry = "gaya3sudhi/sprint6demo"
             registryCredential = 'docker-cred'
             dockerImage = ''
-		PROJECT_ID = ''wired-rex-283811'
+		PROJECT_ID = 'wired-rex-283811'
  		CLUSTER_NAME = 'cluster-1'
  		LOCATION = 'us-east1-b'
  		CREDENTIALS_ID = 'sprint6-kube'
