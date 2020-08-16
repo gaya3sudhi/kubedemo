@@ -9,8 +9,8 @@ spec:
   selector: 
     matchLabels: 
       bb: web
-template: 
-  metadata: 
+  template: 
+    metadata: 
     labels: 
       bb: web
   spec: 
