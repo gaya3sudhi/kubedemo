@@ -1,8 +1,6 @@
 pipeline {
         agent any
         environment {
-            registry = "gaya3sudhi/sprint6demo"
-            registryCredential = 'docker-cred'
             dockerImage = ''
 		PROJECT_ID = 'wired-rex-283811'
  		CLUSTER_NAME = 'cluster-1'
@@ -19,15 +17,19 @@ pipeline {
 	           
 		   stage('Build') { 
 	                steps {
-	                  echo "Cleaning and packaging..."
-	                  sh 'mvn clean package'		
+	                  script {
+                                 myapp = docker.build("gaya3sudhi/sprint6demo")
+                               }
 	                }
 	           }
 		   stage('Test') { 
 			steps {
-		          echo "Testing..."
-			  sh 'mvn test'
-			}
+		          script {
+                                  docker.withRegistry('https://registry.hub.docker.com', 'docker-cred') {
+                                  myapp.push("latest")
+                                  myapp.push("${env.BUILD_ID}")
+                                }
+			   }
 		   }
 		   stage('Build Docker Image') { 
 			steps {
