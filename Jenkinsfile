@@ -12,41 +12,42 @@ pipeline {
 		   stage('Scm Checkout') {            
 			steps {
 	                  checkout scm
-			}	
-	           }
+			      }	
+	                  }
 	           
 		   stage('Build') { 
 	                steps {
 	                  script {
                                  myapp = docker.build("gaya3sudhi/sprint6demo")
-                               }
-	                }
-	           }
+                                 }
+	                     }
+	                 }
 		   stage('Test') { 
 			steps {
 		          script {
                                   docker.withRegistry('https://registry.hub.docker.com', 'docker-cred') {
                                   myapp.push("latest")
                                   myapp.push("${env.BUILD_ID}")
-                                }
-			   }
-		   }
+                                 }
+			      }
+		         }
 		   stage('Build Docker Image') { 
 			steps {
 	                   script {
 	                      dockerImage = docker.build registry + ":$BUILD_NUMBER"
-	                   }
-	                }
-		   }
+	                          }
+	                      }
+		         }
             stage('Deploy Image') {
                 steps{
                     script {
-                    docker.withRegistry( '', registryCredential ) {
+                    docker.withRegistry( '', registryCredential )
+			      {
                         dockerImage.push()
-                    }
-                    }
-                }
-            
+                              }
+                          }
+                       }
+	           }
 	           stage('Deploy to GKE') {
  			steps{
  				echo "Deployment started"
@@ -57,8 +58,7 @@ pipeline {
 				      clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml',
 				      credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 				echo "Deployment Finished"
- 	            }
+ 	                    }
+	                }
 	          }
-	    }
-	}
 	    }
