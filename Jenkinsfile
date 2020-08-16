@@ -5,7 +5,7 @@ pipeline {
 		PROJECT_ID = 'wired-rex-283811'
  		CLUSTER_NAME = 'cluster-1'
  		LOCATION = 'us-east1-b'
- 		CREDENTIALS_ID = 'docker-cred'
+ 		CREDENTIALS_ID = 'sprint-k8'
                     }
 		
 	stages {           
