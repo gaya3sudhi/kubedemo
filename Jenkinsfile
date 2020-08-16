@@ -3,9 +3,15 @@ pipeline {
     stages{
         stage('Deploy to GKE') {
             steps{
-                script{
-                    kubernetesDeploy(kubeconfigId: "kubeconfig-new", configs: "deployment.yaml", enableConfigSubstitution: true) 
-                      }
+                  echo "Deployment started"
+			          	sh 'ls -ltr'
+				          sh 'pwd'
+				          sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml"
+			          	step([$class: 'KubernetesEngineBuilder', projectId: 'wired-rex-283811', 
+				          clusterName: 'cluster-1', location: 'us-east1-b', manifestPattern: 'deployment.yaml',
+				          credentialsId: 'sprint6-kube', verifyDeployments: true])
+			          	echo "Deployment Finished"
+                
                  }   
              }
           }
