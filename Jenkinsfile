@@ -9,7 +9,7 @@ pipeline {
                     }
 		
 	stages {           
-	     stage('Deploy to GKE') {'
+	     stage('Deploy to GKE') {
  			steps{
  				echo "Deployment started"
 				sh 'ls -ltr'
