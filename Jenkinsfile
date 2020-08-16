@@ -31,6 +31,7 @@ pipeline {
                                  }
 			      }
 		         }
+		   } 
 		   stage('Build Docker Image') { 
 			steps {
 	                   script {
@@ -38,6 +39,17 @@ pipeline {
 	                          }
 	                      }
 		         }
+			   
+              stage('Deploy Image') {
+                steps{
+                    script {
+                    docker.withRegistry( '', registryCredential )
+			      {
+                        dockerImage.push()
+                              }
+                          }
+                       }
+	           }
             
 	           stage('Deploy to GKE') {
  			steps{
