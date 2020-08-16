@@ -11,13 +11,13 @@ spec:
       bb: web
   template: 
     metadata: 
-    labels: 
-      bb: web
-  spec: 
-    containers: 
-      - 
-        image: gcr.io/wired-rex-283811/dockerapp
-        name: kubedemo
+      labels: 
+        bb: web
+    spec: 
+      containers: 
+        - 
+          image: gcr.io/wired-rex-283811/dockerapp
+          name: kubedemo
 --- 
 apiVersion: v1
 kind: Service
