@@ -46,7 +46,7 @@ pipeline {
                     }
                     }
                 }
-            }
+            
 	           stage('Deploy to GKE') {
  			steps{
  				echo "Deployment started"
