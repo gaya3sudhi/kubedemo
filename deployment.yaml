@@ -16,7 +16,7 @@ spec:
     spec: 
       containers: 
         - 
-          image: gaya3sudhi/dockerapp
+          image: gcr.io/wired-rex-283811/dockerapp
           name: kubedemo
 --- 
 apiVersion: v1
