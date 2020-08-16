@@ -1,7 +1,6 @@
 pipeline {
         agent any
         environment {
-            dockerImage = ''
 		PROJECT_ID = 'wired-rex-283811'
  		CLUSTER_NAME = 'cluster-1'
  		LOCATION = 'us-east1-b'
