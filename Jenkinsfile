@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy to GKE') {
             steps{
                 script{
-                    kubernetesDeploy(kubeconfigId: "rint6-kube", configs: "deployment.yaml", enableConfigSubstitution: true) 
+                    kubernetesDeploy(kubeconfigId: "sprint6-kube", configs: "deployment.yaml", enableConfigSubstitution: true) 
                       }
                  }   
              }
