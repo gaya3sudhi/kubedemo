@@ -16,7 +16,7 @@ spec:
     spec: 
       containers: 
         - 
-          image: gaya3sudhi/dockerapp:tagversion
+          image: gaya3sudhi/dockerapp:latest
           name: kubedemo
 --- 
 apiVersion: v1
