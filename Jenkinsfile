@@ -1,13 +1,13 @@
 pipeline {
         agent any
         environment {
-		 registry = "gaya3sudhi/sprint6demo"
+		 registry = "gaya3sudhi/dockerapp"
                  registryCredential = 'docker-cred'
                  dockerImage = ''
 		PROJECT_ID = 'wired-rex-283811'
  		CLUSTER_NAME = 'cluster-1'
  		LOCATION = 'us-east1-b'
- 		CREDENTIALS_ID = 'sprint-k8'
+ 		CREDENTIALS_ID = 'sprint6-kube'
                     }
 		
 	stages {           
@@ -16,6 +16,7 @@ pipeline {
  				echo "Deployment started"
 				sh 'ls -ltr'
 				sh 'pwd'
+				sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml"
 				step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID,
 				 clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml',
 				 credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
