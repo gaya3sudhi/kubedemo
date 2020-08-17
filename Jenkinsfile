@@ -5,7 +5,7 @@ pipeline {
                  registryCredential = 'docker-cred'
                  dockerImage = ''
 		PROJECT_ID = 'wired-rex-283811'
- 		CLUSTER_NAME = 'sprint6-demo-gcloud-cluster2'
+ 		CLUSTER_NAME = 'cluster-1'
  		LOCATION = 'us-east1-b'
  		CREDENTIALS_ID = 'sprint-k8'
                     }
