@@ -1,6 +1,9 @@
 pipeline {
         agent any
         environment {
+		 registry = "gaya3sudhi/sprint6demo"
+                 registryCredential = 'docker-cred'
+                 dockerImage = ''
 		PROJECT_ID = 'wired-rex-283811'
  		CLUSTER_NAME = 'sprint6-demo-gcloud-cluster2'
  		LOCATION = 'us-east1-b'
