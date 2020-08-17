@@ -2,7 +2,7 @@ pipeline {
         agent any
         environment {
 		PROJECT_ID = 'wired-rex-283811'
- 		CLUSTER_NAME = 'cluster-1'
+ 		CLUSTER_NAME = 'sprint6-demo-gcloud-cluster2'
  		LOCATION = 'us-east1-b'
  		CREDENTIALS_ID = 'sprint-k8'
                     }
