@@ -27,7 +27,7 @@ metadata:
 spec: 
   ports: 
     - 
-      port: 8009
+      port: 8008
       targetPort: 8080
   selector: 
     bb: web
